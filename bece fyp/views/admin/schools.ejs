@@ -1,0 +1,99 @@
+<%- include('../partials/head', { title: 'Schools Management', stylesheet: '/css/schools.css' }) %>
+
+<body class="admin-layout">
+    <%- include('../partials/header') %>
+    <%- include('../partials/sidebar', { currentPage: 'schools' }) %>
+    
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Schools Management</h1>
+            <div class="header-actions">
+                <a href="/admin/schools/add" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Add School
+                </a>
+                <button class="btn btn-secondary">
+                    <i class="fas fa-download"></i> Export
+                </button>
+            </div>
+        </div>
+        
+        <div class="content-card">
+            <div class="card-header">
+                <h2>Registered Schools</h2>
+                <div class="search-filter">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search schools...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <select class="form-control">
+                        <option>All LGAs</option>
+                        <option>Ardo Kola</option>
+                        <option>Jalingo</option>
+                        <option>Karim Lamido</option>
+                        <!-- More LGA options -->
+                    </select>
+                </div>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="school-table">
+                    <thead>
+                        <tr>
+                            <th>School Name</th>
+                            <th>School Code</th>
+                            <th>LGA</th>
+                            <th>Center No.</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% schools.forEach(school => { %>
+                            <tr>
+                                <td><%= school.name %></td>
+                                <td><%= school.code %></td>
+                                <td><%= school.lga %></td>
+                                <td><%= school.center_number || 'N/A' %></td>
+                                <td>
+                                    <span class="status-badge status-<%= school.status %>">
+                                        <%= school.status %>
+                                    </span>
+                                </td>
+                                <td class="action-cell">
+                                    <a href="/admin/schools/<%= school.id %>" class="action-btn view-btn">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="/admin/schools/edit/<%= school.id %>" class="action-btn edit-btn">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <button class="action-btn delete-btn" data-id="<%= school.id %>">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-footer">
+                <div class="pagination-info">
+                    Showing 1 to <%= schools.length %> of <%= schools.length %> entries
+                </div>
+                <div class="pagination-controls">
+                    <button class="pagination-btn" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <%- include('../partials/footer') %>
+    
+    <script src="/js/main.js"></script>
+</body>

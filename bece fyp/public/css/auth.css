@@ -1,0 +1,142 @@
+.auth-page {
+    background: linear-gradient(135deg, #1e5799 0%,#207cca 51%,#2989d8 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.auth-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    z-index: 1;
+}
+
+.auth-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-logo {
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+.auth-header h1 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.auth-header p {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+/* Floating label effect */
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px 20px 15px 40px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52,152,219,0.1);
+}
+
+.form-group label {
+    position: absolute;
+    left: 40px;
+    top: 15px;
+    color: #999;
+    font-size: 16px;
+    transition: all 0.3s;
+    pointer-events: none;
+}
+
+.form-group input:focus + label,
+.form-group input:valid + label {
+    top: -10px;
+    left: 20px;
+    font-size: 12px;
+    background: white;
+    padding: 0 5px;
+    color: #3498db;
+}
+
+/* Icons */
+.icon-user, .icon-lock {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: #7f8c8d;
+}
+
+/* Button */
+.btn-auth {
+    background: #3498db;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.btn-auth:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Background shapes */
+.auth-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.shape1, .shape2 {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+}
+
+.shape1 {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    right: -100px;
+}
+
+.shape2 {
+    width: 200px;
+    height: 200px;
+    bottom: -50px;
+    left: -50px;
+}

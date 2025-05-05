@@ -1,0 +1,124 @@
+/* Schools Page Specific Styles */
+.schools-container {
+    padding: 20px;
+}
+
+.school-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.school-header h2 {
+    color: #2c3e50;
+    font-size: 24px;
+}
+
+.action-btns .btn {
+    margin-left: 10px;
+}
+
+.school-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.school-table th {
+    background-color: #2980b9;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.school-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.school-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.school-table tr:hover {
+    background-color: #e8f4fc;
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-active {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-inactive {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.action-cell {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.edit-btn {
+    background-color: #ffc107;
+    color: #212529;
+    border: none;
+}
+
+.edit-btn:hover {
+    background-color: #e0a800;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+.view-btn {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+}
+
+.view-btn:hover {
+    background-color: #138496;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .school-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .action-btns {
+        margin-top: 15px;
+    }
+    
+    .school-table {
+        display: block;
+        overflow-x: auto;
+    }
+}

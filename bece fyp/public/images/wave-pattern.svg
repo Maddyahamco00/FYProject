@@ -1,0 +1,9 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 300C50 350 100 250 150 300C200 350 250 250 300 300C350 350 400 250 450 300C500 350 550 250 600 300V600H0V300Z" fill="url(#waveGradient)" fill-opacity="0.1"/>
+  <defs>
+    <linearGradient id="waveGradient" x1="300" y1="300" x2="300" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3498DB"/>
+      <stop offset="1" stop-color="#2980B9"/>
+    </linearGradient>
+  </defs>
+</svg>

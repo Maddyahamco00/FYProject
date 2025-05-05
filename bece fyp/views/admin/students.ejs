@@ -1,0 +1,113 @@
+<%- include('../partials/head', {title: 'Students', css: 'students.css'}) %>
+
+<body>
+    <div class="app-container">
+        <%- include('../partials/sidebar') %>
+        
+        <div class="main-content">
+            <%- include('../partials/header') %>
+            
+            <div class="page-header">
+                <h1>Student Management</h1>
+                <div class="header-actions">
+                    <a href="/admin/students/add" class="btn-primary">
+                        <i class="icon-plus"></i> Add Student
+                    </a>
+                    <button class="btn-secondary">
+                        <i class="icon-download"></i> Export
+                    </button>
+                </div>
+            </div>
+            
+            <div class="search-filter-bar">
+                <div class="search-box">
+                    <i class="icon-search"></i>
+                    <input type="text" placeholder="Search students...">
+                </div>
+                
+                <div class="filters">
+                    <select>
+                        <option>All Schools</option>
+                        <% schools.forEach(school => { %>
+                            <option value="<%= school.id %>"><%= school.name %></option>
+                        <% }); %>
+                    </select>
+                    
+                    <select>
+                        <option>All Classes</option>
+                        <option>JSS 1</option>
+                        <option>JSS 2</option>
+                        <option>JSS 3</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="data-table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Reg. Number</th>
+                            <th>Student Name</th>
+                            <th>School</th>
+                            <th>Class</th>
+                            <th>Gender</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% students.forEach(student => { %>
+                            <tr>
+                                <td><%= student.registration_number %></td>
+                                <td>
+                                    <div class="student-avatar">
+                                        <img src="<%= student.photo || '/images/default-avatar.png' %>" alt="<%= student.first_name %>">
+                                    </div>
+                                    <%= student.last_name %>, <%= student.first_name %> <%= student.middle_name || '' %>
+                                </td>
+                                <td><%= student.school_name %></td>
+                                <td>JSS <%= student.class_level %></td>
+                                <td>
+                                    <span class="gender-badge <%= student.gender.toLowerCase() %>">
+                                        <%= student.gender %>
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <a href="/admin/students/<%= student.id %>" class="btn-action view" title="View">
+                                            <i class="icon-eye"></i>
+                                        </a>
+                                        <a href="/admin/students/edit/<%= student.id %>" class="btn-action edit" title="Edit">
+                                            <i class="icon-edit"></i>
+                                        </a>
+                                        <button class="btn-action delete" title="Delete">
+                                            <i class="icon-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+                
+                <div class="table-footer">
+                    <div class="pagination-info">
+                        Showing 1 to 10 of <%= students.length %> entries
+                    </div>
+                    <div class="pagination-controls">
+                        <button class="pagination-btn" disabled>
+                            <i class="icon-chevron-left"></i>
+                        </button>
+                        <button class="pagination-btn active">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">3</button>
+                        <button class="pagination-btn">
+                            <i class="icon-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/js/main.js"></script>
+</body>

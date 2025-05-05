@@ -1,0 +1,67 @@
+<%- include('../partials/head', { title: 'Register - Taraba BECE', stylesheet: '/css/auth.css' }) %>
+
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <img src="/images/logo.svg" alt="Taraba BECE Logo" class="auth-logo">
+                <h1>Create Admin Account</h1>
+                <p>Fill in the form to register a new admin user</p>
+            </div>
+            
+            <% if (error) { %>
+                <div class="alert alert-danger">
+                    <%= error %>
+                </div>
+            <% } %>
+            
+            <form action="/auth/register" method="POST" class="auth-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="role">User Role</label>
+                    <select id="role" name="role" class="form-control" required>
+                        <option value="admin">Administrator</option>
+                        <option value="operator">Operator</option>
+                        <option value="examiner">Examiner</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">
+                    Register Account
+                </button>
+                
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="/auth/login">Login here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
