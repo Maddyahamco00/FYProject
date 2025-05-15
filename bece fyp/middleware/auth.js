@@ -14,7 +14,7 @@
         req.flash('error_msg', 'Please log in to view that resource');
       }
       res.redirect('/auth/login');
-    },
+    };
   
     /**
      * Middleware to redirect already authenticated users
