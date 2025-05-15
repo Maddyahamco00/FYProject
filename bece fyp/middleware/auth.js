@@ -1,11 +1,11 @@
 // middleware/auth.js
 
-module.exports = {
+
     /**
      * Middleware to ensure the user is authenticated.
      * If not, it redirects to the login page.
      */
-    ensureAuthenticated: (req, res, next) => {
+     const ensureAuthenticated = (req, res, next) => {
       if (req.isAuthenticated()) {
         return next();
       }
@@ -20,11 +20,11 @@ module.exports = {
      * Middleware to redirect already authenticated users
      * away from the login or register pages.
      */
-    forwardAuthenticated: (req, res, next) => {
+    const forwardAuthenticated = (req, res, next) => {
       if (!req.isAuthenticated()) {
         return next();
       }
       res.redirect('/admin/dashboard'); // Redirect to the admin dashboard if logged in.
     }
-  };
+    module.exports = { ensureAuthenticated, forwardAuthenticated};
   

@@ -3,6 +3,10 @@ const router = express.Router();
 const adminController = require('../controllers/adminController');
 const { ensureAuthenticated } = require('../middleware/auth');
 
+// Log the imported functions to debug potential undefined values
+console.log('ensureAuthenticated:', ensureAuthenticated);
+console.log('adminController.dashboard:', adminController.dashboard);
+
 // Dashboard
 router.get('/dashboard', ensureAuthenticated, adminController.dashboard);
 

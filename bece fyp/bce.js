@@ -49,8 +49,12 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use('/auth', require('./routes/auth'));
-app.use('/admin', require('./routes/admin'));
+const adminRoutes = require('./routes/admin');
+const authRoutes = require('./routes/auth');
+app.use('/admin', adminRoutes);
+app.use('/auth', authRoutes);
+// app.use('/auth', require('./routes/auth'));
+// app.use('/admin', require('./routes/admin'));
 
 // Home route
 app.get('/', (req, res) => {
